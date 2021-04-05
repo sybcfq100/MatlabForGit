@@ -6,12 +6,12 @@ mm = 1e-3;  GHz = 1e9;
 y0 = 1/377; c = 3e8; mu0 = 4*pi*1e-7;
 %%%% variable
 epsr = 2; % epsilon of delectric
-ra = 6;% 340; % resistance of layer 1
-rb = 6; %300; % resistance of layer 2
+ra = 340;% 340; % resistance of layer 1
+rb = 300; %300; % resistance of layer 2
 wa = 0.4*mm; % width of the stirpline
 wb = 1*mm;
-la_act = 11*mm; % length of the stripline in layer 1 ????????????????????????12mm??????????
-lb1_act = 11*mm;
+la_act = 10*mm; % length of the stripline in layer 1 ????????????????????????12mm??????????
+lb1_act = 10*mm;
 t = 1*mm; % thickness of dielectric
 D = 1*mm; % Diameter
 Lbig = 20*mm; % total length of the 3D absorber
@@ -61,4 +61,8 @@ figure(2)
 hold on
 plot(f, 20*log10(r))
 grid on
-xlim([1, 13])
+xlim([1, 14])
+figure(3)
+plot(f, 20*log10(r1))
+grid on
+xlim([1, 14])
