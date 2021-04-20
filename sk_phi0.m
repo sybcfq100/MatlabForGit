@@ -2,40 +2,40 @@ clear all
 close all
 clc
 %%%% co-polarization %%%%
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\tss---1111.txt', 'r');    
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\tss---1111.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Ste=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\tyy----1.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\tyy----1.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Stm=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\t00.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\t00.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 S0=cell2mat(S); fclose(fid);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\pss---1111.txt', 'r');    
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\pss---1111.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Pte=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\pyy----1.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\pyy----1.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Ptm=cell2mat(S); fclose(fid)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\Sphi0TEco.txt', 'r');    
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\Sphi0TEco.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
 SMte=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\Sphi0TMco.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\Sphi0TMco.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
 SMtm=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\Pphi0TEco.txt', 'r');    
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\Pphi0TEco.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
 PMte=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcf\Desktop\SK\phi0\Pphi0TMco.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\Pphi0TMco.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
 PMtm=cell2mat(S); fclose(fid);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
