@@ -2,11 +2,11 @@ clear all
 close all
 clc
 %%%% co-polarization %%%%
-fid = fopen('C:\Users\sybcfq\Desktop\SK\txy---1.txt', 'r');    
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\tss---1111.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Ste=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcfq\Desktop\SK\tyx---1.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\tyy----1.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Stm=cell2mat(S); fclose(fid);
 
@@ -70,12 +70,12 @@ figure(4)
 hold on
 % plot(f./1e9, p_te, 'r--',f./1e9, p_tm, 'g--')
 % plot(fm, pm_tm, 'r', fm, pm_te, 'g', 'LineWidth', 1.5)
-plot(f./1e9, p_te-p_tm, 'ro')
-plot(fm, Wpm_te-Wpm_tm, 'g')
+plot(f./1e9, p_te-p_tm, 'bo')
+plot(fm, Wpm_te-Wpm_tm, 'k')
 grid on
 xlabel("Frequency (GHz)")
 ylabel("Transmittance Phase (degree)")
-legend('Exp.Diff of TE','Med.Diff of TM','Location','southwest')
+legend('Exp.Diff between TE and TM','Med.Diff of between TE and TM','Location','southwest')
 % title('phi=0 TE/TM共极化透过相位')
 set(gca, 'FontSize',12)
 set(0,'defaultAxesFontName', 'Times New Roman');%坐标轴
