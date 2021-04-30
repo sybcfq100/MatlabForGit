@@ -48,6 +48,8 @@ p_te = Pte(:,2); p_tm = Ptm(:,2)
 fm = SMte(:,1)
 tm_tm =SMte(:,2); tm_te =SMtm(:,2)
 pm_tm =PMte(:,2); pm_te =PMtm(:,2)
+Wpm_tm = wrapTo360(pm_tm);
+Wpm_te = wrapTo360(pm_te);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(3) %%
@@ -55,26 +57,29 @@ hold on
 plot(f./1e9, t_te-t0+1.03, 'ro',f./1e9, t_tm-t0+1, 'gs', 'MarkerSize', 10)
 plot(fm, tm_te, 'r', fm, tm_tm, 'g', 'LineWidth', 1.5)
 grid on
+xlim([5.8, 12.2])
 xlabel("Frequency (GHz)")
 ylabel("Transmittance (linear)")
-legend('Exp.t_TE', 'Exp.t_TM','M.t_TE','M.t_TM','Location','southwest')
-title('phi=0 TE/TM共极化透过率')
+legend('Exp.t_{TE}', 'Exp.t_{TM}','Med.t_{TE}','Med.t_{TM}','Location','southwest')
+% title('phi=0 TE/TM共极化透过率')
 set(gca, 'FontSize',12)
 set(0,'defaultAxesFontName', 'Times New Roman');%坐标轴
 set(0,'defaultTextFontName', 'Times New Roman');%文字
+box on
 figure(4)
 hold on
 % plot(f./1e9, p_te, 'r--',f./1e9, p_tm, 'g--')
 % plot(fm, pm_tm, 'r', fm, pm_te, 'g', 'LineWidth', 1.5)
-plot(f./1e9, p_te-p_tm, 'r--')
-plot(fm, pm_te-pm_tm, 'g')
+plot(f./1e9, p_te-p_tm, 'ro')
+plot(fm, Wpm_te-Wpm_tm, 'g')
 grid on
 xlabel("Frequency (GHz)")
-ylabel("transmittance phase")
-legend('Exp.phaseDiffTE','M.phaseDiffTM','Location','northeast')
-title('phi=0 TE/TM共极化透过相位')
+ylabel("Transmittance Phase (degree)")
+legend('Exp.Diff of TE','Med.Diff of TM','Location','southwest')
+% title('phi=0 TE/TM共极化透过相位')
 set(gca, 'FontSize',12)
 set(0,'defaultAxesFontName', 'Times New Roman');%坐标轴
 set(0,'defaultTextFontName', 'Times New Roman');%文字
+box on
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

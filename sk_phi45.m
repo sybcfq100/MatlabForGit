@@ -50,13 +50,15 @@ hold on
 plot(f./1e9, txx, 'ro',f./1e9, txy, 'gs', 'MarkerSize', 10)
 plot(fm, txxm, 'r', fm, txym, 'g', 'LineWidth', 1.5)
 grid on
+xlim([5.8, 12.2])
 xlabel("Frequency (GHz)")
 ylabel("Transmittance (linear)")
-legend('Exp.txx', 'Exp.txy','M.txx','M.txy','Location','southwest')
-title('tx 方向的共极化和交叉极化')
+legend('Exp.t_{co}', 'Exp.t_{cross}','Med.t_{co}','Med.t_{cross}','Location','southwest')
+% title('tx 方向的共极化和交叉极化')
 set(gca, 'FontSize',12)
 set(0,'defaultAxesFontName', 'Times New Roman');%坐标轴
 set(0,'defaultTextFontName', 'Times New Roman');%文字
+box on
 % figure(2)
 % hold on
 % plot(f./1e9, pxx-pxy, 'r--')
