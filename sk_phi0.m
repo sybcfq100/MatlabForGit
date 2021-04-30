@@ -2,11 +2,11 @@ clear all
 close all
 clc
 %%%% co-polarization %%%%
-fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\tss---1111.txt', 'r');    
+fid = fopen('C:\Users\sybcfq\Desktop\SK\txy---1.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Ste=cell2mat(S); fclose(fid);
 
-fid = fopen('C:\Users\sybcfq\Desktop\SK\phi0\tyy----1.txt', 'r');
+fid = fopen('C:\Users\sybcfq\Desktop\SK\tyx---1.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 11);%%%去掉前后10个数据
 Stm=cell2mat(S); fclose(fid);
 
