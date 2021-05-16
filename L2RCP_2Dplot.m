@@ -3,7 +3,9 @@ clc
 %%%%%%%%%%%%read in and data processing
 % fid = fopen('C:\Users\sybcf\Documents\MATLAB\LCP-RCP.txt');
 % fid = fopen('C:\Users\sybcf\Documents\MATLAB\TE-RCP.txt');
-fid = fopen('C:\Users\sybcf\Documents\MATLAB\TM-LCP.txt');
+% fid = fopen('C:\Users\sybcf\Documents\MATLAB\TM-LCP.txt');
+% fid = fopen('C:\Users\sybcf\Documents\MATLAB\TM2TE.txt');
+fid = fopen('C:\Users\sybcf\Documents\MATLAB\TE2TM.txt');
 fidd= fopen('C:\Users\sybcf\Documents\MATLAB\new.txt','w');
 while ~feof(fid)
     tline = fgets(fid);
@@ -47,7 +49,7 @@ imagesc(angle,f,L2R)
 ylabel('Frequency (GHz)');xlabel('Angular(Degree)');
 % title('LCP-RCP vs incidence angle')
 % title('TE-RCP vs incidence angle')
-title('TM-LCP vs incidence angle')
+title('TE-TM vs incidence angle')
 set(gca, 'Clim', [0,1])
 set(0,'defaultAxesFontName', 'Times New Roman');%×ø±êÖá
 set(0,'defaultTextFontName', 'Times New Roman');%ÎÄ×Ö
