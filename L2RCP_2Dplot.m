@@ -49,7 +49,7 @@ imagesc(angle,f,L2R)
 ylabel('Frequency (GHz)');xlabel('Angular(Degree)');
 % title('LCP-RCP vs incidence angle')
 % title('TE-RCP vs incidence angle')
-title('TE-TM vs incidence angle')
+title('TM-TE vs incidence angle')
 set(gca, 'Clim', [0,1])
 set(0,'defaultAxesFontName', 'Times New Roman');%×ø±êÖá
 set(0,'defaultTextFontName', 'Times New Roman');%ÎÄ×Ö
