@@ -5,19 +5,19 @@ clc
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\txxphi0.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Sxx=cell2mat(S); fclose(fid);
+Syy=cell2mat(S); fclose(fid);
 
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\tyxphi0.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Syx=cell2mat(S); fclose(fid);
+Sxy=cell2mat(S); fclose(fid);
 
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\tyyphi0.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Syy=cell2mat(S); fclose(fid);
+Syx=cell2mat(S); fclose(fid);
 
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\txyphi0.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Sxy=cell2mat(S); fclose(fid);
+Sxx=cell2mat(S); fclose(fid);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fm = Sxx(:,1)
 Txx =Sxx(:,2); Tyx =Syx(:,2)
@@ -25,22 +25,32 @@ Tyy =Syy(:,2); Txy =Sxy(:,2)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\pxxphi0.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Pxx=cell2mat(S); fclose(fid);
+Pyy=cell2mat(S); fclose(fid);
 
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\pyxphi0.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Pyx=cell2mat(S); fclose(fid);
+Pxy=cell2mat(S); fclose(fid);
 
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\pyyphi0.txt', 'r');    
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Pyy=cell2mat(S); fclose(fid);
+Pyx=cell2mat(S); fclose(fid);
 
 fid = fopen('C:\Users\sybcfq\Desktop\SK\SimR\pxyphi0.txt', 'r');
 S = textscan(fid, '%f %f %f', 980, 'headerlines', 2);%%%去掉前后10个数据
-Pxy=cell2mat(S); fclose(fid);
+Pxx=cell2mat(S); fclose(fid);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 pxx =Pxx(:,2); pyx =Pyx(:,2)
 pyy =Pyy(:,2); pxy =Pxy(:,2)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+txx =Txx.*exp(-i.*pxx./180); tyx =Tyx.*exp(-i.*pyx./180)
+tyy =Tyy.*exp(-i.*pyy./180); txy =Txy.*exp(-i.*pxy./180)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+trcp = (txx-tyy + i*(txy + tyx))/2;
+tcrcp = (txx + tyy + i*(txy - tyx))/2;
+figure (5)
+plot(fm, abs(trcp), 'r', fm, abs(tcrcp), 'g')
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(3) %%
 set(gcf,'unit','centimeters','position',[3 5 7 12])
@@ -49,9 +59,9 @@ set(gca, 'FontSize',12)
 set(0,'defaultAxesFontName', 'Times New Roman');%坐标轴
 set(0,'defaultTextFontName', 'Times New Roman');%文字
 subplot(2,1,1)
-plot(fm, Txx, 'r', fm, Tyx, 'g', 'LineWidth', 1.5)
+plot(fm, Txx, 'b', fm, Tyx, 'k', 'LineWidth', 1.5)
 hold on
-plot(fm, Tyy, 'b', fm, Txy, 'k', 'LineWidth', 1.5)
+plot(fm, Tyy, 'r--', fm, Txy, 'g--', 'LineWidth', 1.5)
 grid on
 xlim([5.8, 12.2])
 xlabel("Frequency (GHz)")
