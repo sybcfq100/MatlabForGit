@@ -76,3 +76,4 @@ for csvFilename in os.listdir('.'):
     for row in csvRows:
         csvWriter.writerow(row)
     csvFileObj.close()
+
